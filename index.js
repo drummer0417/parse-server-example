@@ -18,19 +18,19 @@ var api = new ParseServer({
   fileKey: process.env.FILE_KEY || 'myFileKey',
   masterKey: process.env.MASTER_KEY || '', //Add your master key here. Keep it secret!
   serverURL: process.env.SERVER_URL || 'http://localhost:1337/parse',  // Don't forget to change to https if needed
+//  mailConfig: {
+//    service: 'mailgun',
+//    apiKey: process.env.MAILGUN_API_KEY || 'mg-MYMAILGUNKEY',
+//    domain: process.env.MAILGUN_DOMAIN || 'mymailgundomain@mailgun.org',
+//    domain: process.env.MAILGUN_PUBLIC_KEY || 'myPubKey',
+//    domain: process.env.MAILGUN_SMTP_LOGIN || 'myPostmaster',
+//    domain: process.env.MAILGUN_SMTP_PASSWORD || '',
+//    domain: process.env.MAILGUN_SMTP_PORT || '',
+//    domain: process.env.MAILGUN_SMTP_SERVER || '',
+//    fromAddress: process.env.MAIL_FROM_ADDRESS || '>'
+//  },
   liveQuery: {
     classNames: ["Posts", "Comments"] // List of classes to support for query subscriptions
-  },
-   mailConfig: {
-    service: 'mailgun',
-    apiKey: process.env.MAILGUN_API_KEY || 'mg-MYMAILGUNKEY',
-    domain: process.env.MAILGUN_DOMAIN || 'mymailgundomain@mailgun.org',
-    domain: process.env.MAILGUN_PUBLIC_KEY || 'myPubKey',
-    domain: process.env.MAILGUN_SMTP_LOGIN || 'myPostmaster',
-    domain: process.env.MAILGUN_SMTP_PASSWORD || '',
-    domain: process.env.MAILGUN_SMTP_PORT || '',
-    domain: process.env.MAILGUN_SMTP_SERVER || '',
-    fromAddress: process.env.MAIL_FROM_ADDRESS || '>'
   }
 });
 // Client-keys like the javascript key or the .NET key are not necessary with parse-server
