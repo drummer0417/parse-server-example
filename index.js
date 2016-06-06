@@ -21,11 +21,17 @@ var api = new ParseServer({
   liveQuery: {
     classNames: ["Posts", "Comments"] // List of classes to support for query subscriptions
   }
+
    mailConfig: {
     service: 'mailgun',
     apiKey: process.env.MAILGUN_API_KEY || 'mg-MYMAILGUNKEY',
     domain: process.env.MAILGUN_DOMAIN || 'mymailgundomain@mailgun.org',
-    fromAddress: process.env.MAIL_FROM_ADDRESS || 'My App <myapp@domain.com>'
+    domain: process.env.MAILGUN_PUBLIC_KEY || 'myPubKey',
+    domain: process.env.MAILGUN_SMTP_LOGIN || 'myPostmaster',
+    domain: process.env.MAILGUN_SMTP_PASSWORD || '',
+    domain: process.env.MAILGUN_SMTP_PORT || '',
+    domain: process.env.MAILGUN_SMTP_SERVER || '',
+    fromAddress: process.env.MAIL_FROM_ADDRESS || '>'
   }
 });
 // Client-keys like the javascript key or the .NET key are not necessary with parse-server
