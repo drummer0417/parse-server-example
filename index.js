@@ -29,49 +29,52 @@ var api = new ParseServer({
     //    domain: process.env.MAILGUN_SMTP_SERVER || '',
     //    fromAddress: process.env.MAIL_FROM_ADDRESS || '>'
     //  },
+    //
+    //
+    //     
     // Enable email verification
-    verifyUserEmails: true,
-    emailAdapter: {
-        module: 'parse-server-mailgun',
-        options: {
-            // The address that your emails come from
-            fromAddress: 'PictShare_noreply <noreply@androidappfactory.com>',
-            // Your domain from mailgun.com
-            domain: 'mail.androidappfactory.nl',
-            // Your API key from mailgun.com
-            apiKey: 'key-9379c4aa11ce3ea8e13a3371b34fa770',
-            // The template section
-            templates: {
-                passwordResetEmail: {
-                    subject: 'Reset your password',
-                    pathPlainText: resolve(__dirname, 'mailtemplates/pwreset.txt'),
-                    pathHtml: resolve(__dirname, 'mailtemplates/pwreset.html'),
-                    callback: (user) => {
-                        return {
-                            firstName: user.get('firstName')
-                        }
-                    }
-                    // Now you can use {{firstName}} in your templates
-                },
-                verificationEmail: {
-                    subject: 'Confirm your account',
-                    pathPlainText: resolve(__dirname, 'path/to/templates/verification_email.txt'),
-                    pathHtml: resolve(__dirname, 'path/to/templates/verification_email.html'),
-                    callback: (user) => {
-                        return {
-                            firstName: user.get('firstName')
-                        }
-                    }
-                    // Now you can use {{firstName}} in your templates
-                },
-                customEmailAlert: {
-                    subject: 'Urgent notification!',
-                    pathPlainText: resolve(__dirname, 'path/to/templates/custom_alert.txt'),
-                    pathHtml: resolve(__dirname, 'path/to/templates/custom_alert.html'),
-                }
-            }
-        }
-    },
+    // verifyUserEmails: true,
+    // emailAdapter: {
+    //     module: 'parse-server-mailgun',
+    //     options: {
+    //         // The address that your emails come from
+    //         fromAddress: 'PictShare_noreply <noreply@androidappfactory.com>',
+    //         // Your domain from mailgun.com
+    //         domain: 'mail.androidappfactory.nl',
+    //         // Your API key from mailgun.com
+    //         apiKey: 'key-9379c4aa11ce3ea8e13a3371b34fa770',
+    //         // The template section
+    //         templates: {
+    //             passwordResetEmail: {
+    //                 subject: 'Reset your password',
+    //                 pathPlainText: resolve(__dirname, 'mailtemplates/pwreset.txt'),
+    //                 pathHtml: resolve(__dirname, 'mailtemplates/pwreset.html'),
+    //                 callback: (user) => {
+    //                     return {
+    //                         firstName: user.get('firstName')
+    //                     }
+    //                 }
+    //                 // Now you can use {{firstName}} in your templates
+    //             },
+    //             verificationEmail: {
+    //                 subject: 'Confirm your account',
+    //                 pathPlainText: resolve(__dirname, 'path/to/templates/verification_email.txt'),
+    //                 pathHtml: resolve(__dirname, 'path/to/templates/verification_email.html'),
+    //                 callback: (user) => {
+    //                     return {
+    //                         firstName: user.get('firstName')
+    //                     }
+    //                 }
+    //                 // Now you can use {{firstName}} in your templates
+    //             },
+    //             customEmailAlert: {
+    //                 subject: 'Urgent notification!',
+    //                 pathPlainText: resolve(__dirname, 'path/to/templates/custom_alert.txt'),
+    //                 pathHtml: resolve(__dirname, 'path/to/templates/custom_alert.html'),
+    //             }
+    //         }
+    //     }
+    // },
     liveQuery: {
         classNames: ["Posts", "Comments"] // List of classes to support for query subscriptions
     }
