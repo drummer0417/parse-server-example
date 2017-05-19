@@ -23,20 +23,18 @@ var api = new ParseServer({
   emailVerifyTokenValidityDuration: 2 * 60 * 60, // in seconds (2 hours = 7200 seconds)
   preventLoginWithUnverifiedEmail: false, // defaults to false
 
-  publicServerURL: 'https://example.com/parse',
   // Your apps name. This will appear in the subject and body of the emails that are sent.
-  appName: 'Parse App',
-
+  appName: process.env.APP_NAME || 'PictShare',
   // The email adapter
   emailAdapter: {
     module: 'parse-server-simple-mailgun-adapter',
     options: {
       // The address that your emails come from
-      fromAddress: process.env.MAIL_FROM_ADDRESS,
+      fromAddress: process.env.MAIL_FROM_ADDRESS || 'noreply@unknown.com',
       // Your domain from mailgun.com
-      domain: process.env.MAILGUN_DOMAIN,
+      domain: process.env.MAILGUN_DOMAIN || 'unknow.mail.domain.nl',
       // Your API key from mailgun.com
-      apiKey: process.env.MAILGUN_API_KEY,
+      apiKey: process.env.MAILGUN_API_KEY || 'theApiKey'
     }
   },
   liveQuery: {
