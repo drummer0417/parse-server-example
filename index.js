@@ -22,7 +22,8 @@ var api = new ParseServer({
   verifyUserEmails: false, //depends on your needs, you can set it to false
   emailVerifyTokenValidityDuration: 2 * 60 * 60, // in seconds (2 hours = 7200 seconds)
   preventLoginWithUnverifiedEmail: false, // defaults to false
-
+// serverURL
+  publicServerURL: process.env.SERVER_URL || 'http://localhost:1337/parse',
   // Your apps name. This will appear in the subject and body of the emails that are sent.
   appName: process.env.APP_NAME || 'PictShare',
   // The email adapter
